@@ -1,0 +1,93 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local TextBox = Instance.new("TextBox")
+local TextButton = Instance.new("TextButton")
+local TextButton_2 = Instance.new("TextButton")
+local TextButton_3 = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.ResetOnSpawn = false
+
+TextBox.Parent = ScreenGui
+TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.Position = UDim2.new(0.12820515, 0, 0.0895295888, 0)
+TextBox.Size = UDim2.new(0, 200, 0, 50)
+TextBox.Visible = false
+TextBox.Font = Enum.Font.SourceSans
+TextBox.Text = ""
+TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextBox.TextSize = 14.000
+
+TextButton.Parent = ScreenGui
+TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.Position = UDim2.new(0, 0, 0.101669192, 0)
+TextButton.Size = UDim2.new(0, 106, 0, 50)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = "OPEN"
+TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.TextSize = 14.000
+
+TextButton_2.Parent = ScreenGui
+TextButton_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_2.Position = UDim2.new(0.292307705, 0, 0.0591805764, 0)
+TextButton_2.Size = UDim2.new(0, 39, 0, 37)
+TextButton_2.Visible = false
+TextButton_2.Font = Enum.Font.SourceSans
+TextButton_2.Text = "X"
+TextButton_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_2.TextSize = 14.000
+
+TextButton_3.Parent = ScreenGui
+TextButton_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_3.Position = UDim2.new(0.128205135, 0, 0.177541733, 0)
+TextButton_3.Size = UDim2.new(0, 200, 0, 50)
+TextButton_3.Visible = false
+TextButton_3.Font = Enum.Font.SourceSans
+TextButton_3.Text = "teleport"
+TextButton_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_3.TextSize = 14.000
+
+-- Scripts:
+
+local function JHRY_fake_script() -- TextButton.LocalScript 
+    local script = Instance.new('LocalScript', TextButton)
+
+    script.Parent.MouseButton1Click:Connect(function()
+        for i, v in pairs(script.Parent.Parent:GetChildren()) do
+            v.Visible = not v.Visible
+    
+        end
+    end)
+end
+coroutine.wrap(JHRY_fake_script)()
+local function XKSDW_fake_script() -- TextButton_2.LocalScript 
+    local script = Instance.new('LocalScript', TextButton_2)
+
+    script.Parent.MouseButton1Click:Connect(function()
+        for i, v in pairs(script.Parent.Parent:GetChildren()) do
+            v.Visible = not v.Visible
+    
+        end
+    end)
+end
+coroutine.wrap(XKSDW_fake_script)()
+local function TGPWFMY_fake_script() -- TextButton_3.LocalScript 
+    local script = Instance.new('LocalScript', TextButton_3)
+
+    script.Parent.MouseButton1Click:Connect(function()
+    local yes = script.Parent.Parent.TextBox.Text
+    local abobus = Instance.new("Part", game.workspace[yes])
+    abobus.CFrame = game.workspace[yes].HumanoidRootPart.CFrame
+    
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace[yes].Part.CFrame
+    abobus:Destroy()
+    end)
+end
+coroutine.wrap(TGPWFMY_fake_script)()
